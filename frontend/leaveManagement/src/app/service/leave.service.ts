@@ -15,6 +15,6 @@ export class LeaveService {
     // var httpParam = new HttpParams();
     // httpParam.append("empId",empId);
     
-    return this.http.get('leaveManagement/api/getLeaves/{empId}',{headers: this.headers});
+    return this.http.get('/v2/leaveManagement/api/getAllLeaves',{headers: this.headers});
   }
 }

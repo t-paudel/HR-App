@@ -1,6 +1,6 @@
 {
-    "/leaveManagement/api": {
-        "target": "http://localhost:8081",
+    "/v2/leaveManagement/api/*": {
+        "target": "http://localhost:8090",
         "secure": false,
         "loglevel": "debug"
     }
