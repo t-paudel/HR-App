@@ -1,65 +1,49 @@
 package io.swagger.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * UserLeaves
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-09-06T06:17:29.965Z[GMT]")
-public class UserLeaves   {
-  @JsonProperty("id")
-  private String id = null;
-
+@Document(collection="LEAVE_DATA")
+public class UserLeaves   
+{
+  @Id
   @JsonProperty("employeeId")
   private String employeeId = null;
 
   @JsonProperty("sickLeave")
-  private Long sickLeave = null;
+  private int sickLeave = 0;
 
   @JsonProperty("casualLeave")
-  private Long casualLeave = null;
+  private int casualLeave = 0;
 
   @JsonProperty("earnedLeave")
-  private Long earnedLeave = null;
+  private int earnedLeave = 0;
 
   @JsonProperty("maternityLeave")
-  private Long maternityLeave = null;
+  private int maternityLeave = 0;
 
   @JsonProperty("compOff")
-  private Long compOff = null;
+  private int compOff = 0;
 
   @JsonProperty("lossOffPay")
-  private Long lossOffPay = null;
+  private int lossOffPay = 0;
 
   @JsonProperty("displayStatus")
   private Boolean displayStatus = true;
 
-  public UserLeaves id(String id) {
-    this.id = id;
-    return this;
-  }
 
-  /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public UserLeaves employeeId(String employeeId) {
     this.employeeId = employeeId;
@@ -80,7 +64,7 @@ public class UserLeaves   {
     this.employeeId = employeeId;
   }
 
-  public UserLeaves sickLeave(Long sickLeave) {
+  public UserLeaves sickLeave(int sickLeave) {
     this.sickLeave = sickLeave;
     return this;
   }
@@ -91,15 +75,15 @@ public class UserLeaves   {
   **/
   @ApiModelProperty(value = "")
 
-  public Long getSickLeave() {
+  public int getSickLeave() {
     return sickLeave;
   }
 
-  public void setSickLeave(Long sickLeave) {
+  public void setSickLeave(int sickLeave) {
     this.sickLeave = sickLeave;
   }
 
-  public UserLeaves casualLeave(Long casualLeave) {
+  public UserLeaves casualLeave(int casualLeave) {
     this.casualLeave = casualLeave;
     return this;
   }
@@ -110,15 +94,15 @@ public class UserLeaves   {
   **/
   @ApiModelProperty(value = "")
 
-  public Long getCasualLeave() {
+  public int getCasualLeave() {
     return casualLeave;
   }
 
-  public void setCasualLeave(Long casualLeave) {
+  public void setCasualLeave(int casualLeave) {
     this.casualLeave = casualLeave;
   }
 
-  public UserLeaves earnedLeave(Long earnedLeave) {
+  public UserLeaves earnedLeave(int earnedLeave) {
     this.earnedLeave = earnedLeave;
     return this;
   }
@@ -129,15 +113,15 @@ public class UserLeaves   {
   **/
   @ApiModelProperty(value = "")
 
-  public Long getEarnedLeave() {
+  public int getEarnedLeave() {
     return earnedLeave;
   }
 
-  public void setEarnedLeave(Long earnedLeave) {
+  public void setEarnedLeave(int earnedLeave) {
     this.earnedLeave = earnedLeave;
   }
 
-  public UserLeaves maternityLeave(Long maternityLeave) {
+  public UserLeaves maternityLeave(int maternityLeave) {
     this.maternityLeave = maternityLeave;
     return this;
   }
@@ -148,15 +132,15 @@ public class UserLeaves   {
   **/
   @ApiModelProperty(value = "")
 
-  public Long getMaternityLeave() {
+  public int getMaternityLeave() {
     return maternityLeave;
   }
 
-  public void setMaternityLeave(Long maternityLeave) {
+  public void setMaternityLeave(int maternityLeave) {
     this.maternityLeave = maternityLeave;
   }
 
-  public UserLeaves compOff(Long compOff) {
+  public UserLeaves compOff(int compOff) {
     this.compOff = compOff;
     return this;
   }
@@ -167,15 +151,15 @@ public class UserLeaves   {
   **/
   @ApiModelProperty(value = "")
 
-  public Long getCompOff() {
+  public int getCompOff() {
     return compOff;
   }
 
-  public void setCompOff(Long compOff) {
+  public void setCompOff(int compOff) {
     this.compOff = compOff;
   }
 
-  public UserLeaves lossOffPay(Long lossOffPay) {
+  public UserLeaves lossOffPay(int lossOffPay) {
     this.lossOffPay = lossOffPay;
     return this;
   }
@@ -186,11 +170,11 @@ public class UserLeaves   {
   **/
   @ApiModelProperty(value = "")
 
-  public Long getLossOffPay() {
+  public int getLossOffPay() {
     return lossOffPay;
   }
 
-  public void setLossOffPay(Long lossOffPay) {
+  public void setLossOffPay(int lossOffPay) {
     this.lossOffPay = lossOffPay;
   }
 
@@ -223,8 +207,7 @@ public class UserLeaves   {
       return false;
     }
     UserLeaves userLeaves = (UserLeaves) o;
-    return Objects.equals(this.id, userLeaves.id) &&
-        Objects.equals(this.employeeId, userLeaves.employeeId) &&
+    return  Objects.equals(this.employeeId, userLeaves.employeeId) &&
         Objects.equals(this.sickLeave, userLeaves.sickLeave) &&
         Objects.equals(this.casualLeave, userLeaves.casualLeave) &&
         Objects.equals(this.earnedLeave, userLeaves.earnedLeave) &&
@@ -236,15 +219,13 @@ public class UserLeaves   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeeId, sickLeave, casualLeave, earnedLeave, maternityLeave, compOff, lossOffPay, displayStatus);
+    return Objects.hash(employeeId, sickLeave, casualLeave, earnedLeave, maternityLeave, compOff, lossOffPay, displayStatus);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserLeaves {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("    sickLeave: ").append(toIndentedString(sickLeave)).append("\n");
     sb.append("    casualLeave: ").append(toIndentedString(casualLeave)).append("\n");

@@ -1,11 +1,9 @@
 package io.swagger.api;
 
-import io.swagger.model.ApplyCompOff;
-import io.swagger.model.ApplyLeave;
-import io.swagger.model.History;
-import io.swagger.model.UserLeaves;
+import static org.junit.Assert.assertEquals;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
+import io.swagger.model.ApplyCompOff;
+import io.swagger.model.ApplyLeave;
+import io.swagger.model.History;
+import io.swagger.model.UserLeaves;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

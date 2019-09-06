@@ -1,25 +1,29 @@
 package io.swagger.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
-import org.springframework.validation.annotation.Validated;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.validation.annotation.Validated;
+import org.threeten.bp.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * History
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-09-06T06:17:29.965Z[GMT]")
-public class History   {
-  @JsonProperty("id")
-  private String id = null;
-
+@Document(collection="LEAVE_HISTORY")
+public class History   
+{  
+  @Id
   @JsonProperty("employeeId")
   private String employeeId = null;
 
@@ -75,25 +79,6 @@ public class History   {
 
   @JsonProperty("displayStatus")
   private Boolean displayStatus = true;
-
-  public History id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public History employeeId(String employeeId) {
     this.employeeId = employeeId;
@@ -259,8 +244,7 @@ public class History   {
       return false;
     }
     History history = (History) o;
-    return Objects.equals(this.id, history.id) &&
-        Objects.equals(this.employeeId, history.employeeId) &&
+    return Objects.equals(this.employeeId, history.employeeId) &&
         Objects.equals(this.service, history.service) &&
         Objects.equals(this.leaveType, history.leaveType) &&
         Objects.equals(this.startDate, history.startDate) &&
@@ -272,7 +256,7 @@ public class History   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeeId, service, leaveType, startDate, endDate, reason, status, displayStatus);
+    return Objects.hash(employeeId, service, leaveType, startDate, endDate, reason, status, displayStatus);
   }
 
   @Override
@@ -280,7 +264,6 @@ public class History   {
     StringBuilder sb = new StringBuilder();
     sb.append("class History {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    leaveType: ").append(toIndentedString(leaveType)).append("\n");
