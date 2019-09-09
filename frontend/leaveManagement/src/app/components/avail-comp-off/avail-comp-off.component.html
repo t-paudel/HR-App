@@ -1,0 +1,12 @@
+<form [formGroup]="compOffForm" (ngSubmit) = apply()>
+  <label for="startDate">Start Date : </label>
+  <input id="startDate" formControlName="startDate" placeholder="Enter start date">
+
+  <label for="endDate">End Date : </label>
+  <input id="endDate" formControlName="endDate" placeholder="Enter end date">
+
+  <label for="reason">Reason : </label>
+  <input id="reason" formControlName="reason" placeholder="Enter reason">
+
+  <button type="submit">Avail Comp-Off</button>
+</form>

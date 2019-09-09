@@ -1,0 +1,25 @@
+<form [formGroup] = "leaveForm" (ngSubmit) = addLeaves()>
+  <label for="empId">Employee ID:</label>
+  <input id = "empId" formControlName = "empId">
+<br>
+  <label for="sickLeave">Sick Leave:</label>
+  <input id = "sickLeave" formControlName = "sickLeave">
+  <br>
+  <label for="casualLeave">Casual Leave:</label>
+  <input id = "casualLeave" formControlName = "casualLeave">
+  <br>
+  <label for="earnedLeave">Earned Leave:</label>
+  <input id = "earnedLeave" formControlName = "earnedLeave">
+  <br>
+  <label for="compOff">Comp Off:</label>
+  <input id = "compOff" formControlName = "compOff">
+  <br>
+  <label for="lop">Loss of Pay:</label>
+  <input id = "lop" formControlName = "lop">
+  <br>
+  <label for="maternityLeave">Maternity Leave:</label>
+  <input id = "maternityLeave" formControlName = "maternityLeave">
+  <br>
+  <button type = "submit">Submit</button>
+
+</form>

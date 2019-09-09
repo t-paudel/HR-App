@@ -1,10 +1,10 @@
 export class UserLeaves 
 {
-    empId : string;
+    employeeId : string;
     sickLeave : number;
     casualLeave : number;
     earnedLeave : number;
     compOff : number;
-    lop : number;
+    lossOfPay : number;
     maternityLeave : number;
 }

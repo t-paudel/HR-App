@@ -3,7 +3,7 @@ package io.swagger.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.swagger.model.ApplyCompOff;
+import io.swagger.model.AvailCompOff;
 import io.swagger.model.ApplyLeave;
 import io.swagger.model.History;
 import io.swagger.model.MessageStatus;
@@ -14,7 +14,7 @@ import io.swagger.util.DateUtility;
 import io.swagger.util.LeaveUtility;
 
 @Service
-public class UserLeaveService 
+public class LeaveService 
 {
 	@Autowired
 	private LeaveRepository leaveRepo;
@@ -41,24 +41,21 @@ public class UserLeaveService
 	public MessageStatus deleteLeaves(String empId)
 	{
 		MessageStatus status =  new MessageStatus();
+		UserLeaves leaves = new UserLeaves();
 		
-		leaveRepo.delete(empId);
-		if(leaveRepo.findByEmployeeId(empId).equals(null))
-		{
-			status.setMessage("Data deleted successfully.");
-			status.setStatus(true);
-		}
-		else
-		{
-			status.setMessage("Delete unsuccessful!!");
-			status.setStatus(false);
-		}
+		leaves = leaveRepo.findByEmployeeId(empId);
+		leaves.setDisplayStatus(false);
+		leaveRepo.save(leaves);
+		
+		status.setMessage("Data deleted successfully.");
+		status.setStatus(true);
 		
 		return status;
 	}
 	
 	public MessageStatus applyLeave(ApplyLeave data)
 	{
+		System.out.println("LeaveService::applyLeave()");
 		int diff;
 		DateUtility dateUtil = new DateUtility();
 		LeaveUtility leaveUtil = new LeaveUtility();
@@ -69,39 +66,41 @@ public class UserLeaveService
 		leaves = leaveRepo.findByEmployeeId(data.getEmployeeId());
 		diff = dateUtil.DateDiff(data.getStartDate(), data.getEndDate());	
 		
+		System.out.println(data.getLeaveType());
+		
 		switch(data.getLeaveType())
 		{
-			case "sickLeave":
+			case "Sick Leave":
 				status = leaveUtil.getStatus("Sick Leave", diff, leaves.getSickLeave());
 				if(status.isStatus())
 					leaves.setSickLeave(leaves.getSickLeave()-diff);
 				break;
 				
-			case "casualLeave":
+			case "Casual Leave":
 				status = leaveUtil.getStatus("Casual Leave", diff, leaves.getCasualLeave());
 				if(status.isStatus())
 					leaves.setCasualLeave(leaves.getCasualLeave()-diff);
 				break;
 				
-			case "earnedLeave":
+			case "Earned Leave":
 				status = leaveUtil.getStatus("Earned Leave", diff, leaves.getEarnedLeave());
 				if(status.isStatus())
 					leaves.setCasualLeave(leaves.getEarnedLeave()-diff);
 				break;
 				
-			case "lop":
-				status = leaveUtil.getStatus("Loss of Pay", diff, leaves.getLossOffPay());
+			case "Loss of Pay":
+				status = leaveUtil.getStatus("Loss of Pay", diff, leaves.getLossOfPay());
 				if(status.isStatus())
-					leaves.setCasualLeave(leaves.getLossOffPay()-diff);
+					leaves.setCasualLeave(leaves.getLossOfPay()-diff);
 				break;
 				
-			case "maternityLeave":
+			case "Maternity Leave":
 				status = leaveUtil.getStatus("Maternity Leave", diff, leaves.getMaternityLeave());
 				if(status.isStatus())
 					leaves.setCasualLeave(leaves.getMaternityLeave()-diff);
 				break;
 				
-			case "compOff":
+			case "Comp-Off":
 				status = leaveUtil.getStatus("Comp-off", diff, leaves.getCompOff());
 				if(status.isStatus())
 					leaves.setCasualLeave(leaves.getCompOff()-diff);
@@ -126,7 +125,7 @@ public class UserLeaveService
 		return status;
 	}
 	
-	public MessageStatus ApplyCompOff(ApplyCompOff data)
+	public MessageStatus ApplyCompOff(AvailCompOff data)
 	{
 		MessageStatus status = new MessageStatus();
 		History history = new History();
@@ -144,4 +143,5 @@ public class UserLeaveService
 		
 		return status;
 	}
+	
 }

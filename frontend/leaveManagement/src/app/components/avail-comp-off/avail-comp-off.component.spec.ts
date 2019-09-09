@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeaveComponent } from './leave.component';
+import { AvailCompOffComponent } from './avail-comp-off.component';
 
-describe('LeaveComponent', () => {
-  let component: LeaveComponent;
-  let fixture: ComponentFixture<LeaveComponent>;
+describe('AvailCompOffComponent', () => {
+  let component: AvailCompOffComponent;
+  let fixture: ComponentFixture<AvailCompOffComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeaveComponent ]
+      declarations: [ AvailCompOffComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LeaveComponent);
+    fixture = TestBed.createComponent(AvailCompOffComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

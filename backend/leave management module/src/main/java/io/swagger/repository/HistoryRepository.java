@@ -10,5 +10,7 @@ import io.swagger.model.History;
 @Repository
 public interface HistoryRepository extends MongoRepository<History, String> 
 {
+	History findById(String id);
+	
 	List<History> findByEmployeeId(String employeeId);
 }

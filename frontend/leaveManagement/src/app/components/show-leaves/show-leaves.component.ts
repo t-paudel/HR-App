@@ -10,14 +10,15 @@ import { LeaveService } from 'src/app/service/leave.service';
 export class ShowLeavesComponent implements OnInit {
 
   user = "tushar"
-  leaves: UserLeaves;
+  leaves = new UserLeaves();
 
-  constructor(private service:LeaveService) { }
+  constructor(private leaveService:LeaveService) { }
 
   ngOnInit() 
   {
-    this.service.getAvailableLeaves(this.user).subscribe((data:UserLeaves) => {
+    this.leaveService.getAvailableLeaves(this.user).subscribe((data:UserLeaves) => {
       this.leaves = data;
+      console.log(this.leaves);
     });
   }
 }

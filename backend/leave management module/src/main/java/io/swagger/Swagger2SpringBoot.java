@@ -22,6 +22,7 @@ public class Swagger2SpringBoot implements CommandLineRunner {
 
     public static void main(String[] args) throws Exception {
         new SpringApplication(Swagger2SpringBoot.class).run(args);
+        System.out.println("LeaveManagement module up for service!!");
     }
 
     class ExitException extends RuntimeException implements ExitCodeGenerator {

@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-09-06T06:17:29.965Z[GMT]")
-public class ApplyCompOff   {
+public class AvailCompOff   {
   @JsonProperty("employeeId")
   private String employeeId = null;
 
@@ -29,7 +29,7 @@ public class ApplyCompOff   {
   @JsonProperty("endDate")
   private LocalDate endDate = null;
 
-  public ApplyCompOff employeeId(String employeeId) {
+  public AvailCompOff employeeId(String employeeId) {
     this.employeeId = employeeId;
     return this;
   }
@@ -48,7 +48,7 @@ public class ApplyCompOff   {
     this.employeeId = employeeId;
   }
 
-  public ApplyCompOff reason(String reason) {
+  public AvailCompOff reason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -67,7 +67,7 @@ public class ApplyCompOff   {
     this.reason = reason;
   }
 
-  public ApplyCompOff startDate(LocalDate startDate) {
+  public AvailCompOff startDate(LocalDate startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -87,7 +87,7 @@ public class ApplyCompOff   {
     this.startDate = startDate;
   }
 
-  public ApplyCompOff endDate(LocalDate endDate) {
+  public AvailCompOff endDate(LocalDate endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -116,7 +116,7 @@ public class ApplyCompOff   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplyCompOff applyCompOff = (ApplyCompOff) o;
+    AvailCompOff applyCompOff = (AvailCompOff) o;
     return Objects.equals(this.employeeId, applyCompOff.employeeId) &&
         Objects.equals(this.reason, applyCompOff.reason) &&
         Objects.equals(this.startDate, applyCompOff.startDate) &&

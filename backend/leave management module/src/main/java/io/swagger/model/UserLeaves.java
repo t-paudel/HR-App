@@ -37,8 +37,8 @@ public class UserLeaves
   @JsonProperty("compOff")
   private int compOff = 0;
 
-  @JsonProperty("lossOffPay")
-  private int lossOffPay = 0;
+  @JsonProperty("lossOfPay")
+  private int lossOfPay = 0;
 
   @JsonProperty("displayStatus")
   private Boolean displayStatus = true;
@@ -159,23 +159,23 @@ public class UserLeaves
     this.compOff = compOff;
   }
 
-  public UserLeaves lossOffPay(int lossOffPay) {
-    this.lossOffPay = lossOffPay;
+  public UserLeaves lossOfPay(int lossOfPay) {
+    this.lossOfPay = lossOfPay;
     return this;
   }
 
   /**
-   * Get lossOffPay
-   * @return lossOffPay
+   * Get lossOfPay
+   * @return lossOfPay
   **/
   @ApiModelProperty(value = "")
 
-  public int getLossOffPay() {
-    return lossOffPay;
+  public int getLossOfPay() {
+    return lossOfPay;
   }
 
-  public void setLossOffPay(int lossOffPay) {
-    this.lossOffPay = lossOffPay;
+  public void setLossOfPay(int lossOfPay) {
+    this.lossOfPay = lossOfPay;
   }
 
   public UserLeaves displayStatus(Boolean displayStatus) {
@@ -213,13 +213,13 @@ public class UserLeaves
         Objects.equals(this.earnedLeave, userLeaves.earnedLeave) &&
         Objects.equals(this.maternityLeave, userLeaves.maternityLeave) &&
         Objects.equals(this.compOff, userLeaves.compOff) &&
-        Objects.equals(this.lossOffPay, userLeaves.lossOffPay) &&
+        Objects.equals(this.lossOfPay, userLeaves.lossOfPay) &&
         Objects.equals(this.displayStatus, userLeaves.displayStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(employeeId, sickLeave, casualLeave, earnedLeave, maternityLeave, compOff, lossOffPay, displayStatus);
+    return Objects.hash(employeeId, sickLeave, casualLeave, earnedLeave, maternityLeave, compOff, lossOfPay, displayStatus);
   }
 
   @Override
@@ -232,7 +232,7 @@ public class UserLeaves
     sb.append("    earnedLeave: ").append(toIndentedString(earnedLeave)).append("\n");
     sb.append("    maternityLeave: ").append(toIndentedString(maternityLeave)).append("\n");
     sb.append("    compOff: ").append(toIndentedString(compOff)).append("\n");
-    sb.append("    lossOffPay: ").append(toIndentedString(lossOffPay)).append("\n");
+    sb.append("    lossOfPay: ").append(toIndentedString(lossOfPay)).append("\n");
     sb.append("    displayStatus: ").append(toIndentedString(displayStatus)).append("\n");
     sb.append("}");
     return sb.toString();

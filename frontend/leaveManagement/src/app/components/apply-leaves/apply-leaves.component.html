@@ -1,3 +1,18 @@
-<p>
-  apply-leaves works!
-</p>
+<form [formGroup] = "leaveForm" (ngSubmit) = apply()>
+  
+  <label form="leaveType">Leave Type : </label>
+  <select formControlName="leaveType">
+    <option *ngFor="let type of leaveType">{{ type }}</option>
+  </select>
+
+  <label for="reason">Reason : </label>
+  <input id="reason" formControlName="reason"> 
+
+  <label for="startDate">Start Date : </label>
+  <input id="startDate" formControlName="startDate">
+  
+  <label for="endDate">End Date : </label>
+  <input id="endDate" formControlName="endDate">
+<br>
+  <button type="submit">Apply Leave</button>
+</form>

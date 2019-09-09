@@ -6,17 +6,26 @@ import { AppComponent } from './app.component';
 import { ApplyLeavesComponent } from './components/apply-leaves/apply-leaves.component';
 import { ShowLeavesComponent } from './components/show-leaves/show-leaves.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddLeavesComponent } from './components/add-leaves/add-leaves.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AvailCompOffComponent } from './components/avail-comp-off/avail-comp-off.component';
+import { LeaveHistoryComponent } from './components/leave-history/leave-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowLeavesComponent,
-    ApplyLeavesComponent
+    ApplyLeavesComponent,
+    AddLeavesComponent,
+    AvailCompOffComponent,
+    LeaveHistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

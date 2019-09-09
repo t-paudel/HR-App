@@ -24,6 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 public class History   
 {  
   @Id
+  @JsonProperty("id")
+  private String id = null;
+  
   @JsonProperty("employeeId")
   private String employeeId = null;
 
@@ -80,11 +83,36 @@ public class History
   @JsonProperty("displayStatus")
   private Boolean displayStatus = true;
 
+  
+  public History id(String id) {
+	    this.id = id;
+	    return this;
+}
+  
+	  
+  /**
+   * Get employeeId
+   * @return employeeId
+  **/
+  @ApiModelProperty(value = "")
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+  
+  
+  
   public History employeeId(String employeeId) {
     this.employeeId = employeeId;
     return this;
   }
 
+  
+  
   /**
    * Get employeeId
    * @return employeeId
