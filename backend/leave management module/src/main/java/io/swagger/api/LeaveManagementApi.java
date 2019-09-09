@@ -94,14 +94,14 @@ public interface LeaveManagementApi {
     ResponseEntity<List<History>> getEmployeeLeaveHistory(@ApiParam(value = "Employee id to delete",required=true) @PathVariable("employeeId") String employeeId);
 
 
-	@ApiOperation(value = "Deletes employee leave data", nickname = "deleteEmployeeLeaveHistory", notes = "", tags={ "history", })
+	@ApiOperation(value = "Deletes single entry of employee leave data", nickname = "deleteEmployeeLeaveHistory", notes = "", tags={ "history", })
     @ApiResponses(value = { 
         @ApiResponse(code = 400, message = "Invalid employee ID"),
         @ApiResponse(code = 404, message = "Employee not found"),
         @ApiResponse(code = 405, message = "Invalid input") })
-    @RequestMapping(value = "/leaveManagement/api/removeHistory/{employeeId}",
+    @RequestMapping(value = "/leaveManagement/api/removeHistory/{id}",
         method = RequestMethod.DELETE)
-    ResponseEntity<MessageStatus> deleteEmployeeLeaveHistory(@ApiParam(value = "Employee id to delete",required=true) @PathVariable("employeeId") String employeeId);
+    ResponseEntity<MessageStatus> deleteEmployeeLeaveHistory(@ApiParam(value = "Employee id to delete",required=true) @PathVariable("id") String id);
     
 
     @ApiOperation(value = "Update already applied leave/comp-off", nickname = "updateLeaveHistory", notes = "", tags={ "history", })
@@ -109,7 +109,7 @@ public interface LeaveManagementApi {
         @ApiResponse(code = 400, message = "Invalid employee ID"),
         @ApiResponse(code = 404, message = "Employee not found"),
         @ApiResponse(code = 405, message = "Invalid input") })
-    @RequestMapping(value = "/leaveManagement/api/addHistory",
+    @RequestMapping(value = "/leaveManagement/api/updateHistory",
         consumes = { "application/json", "application/xml" },
         method = RequestMethod.PUT)
     ResponseEntity<History> updateLeaveHistory(@ApiParam(value = "History Object that needs to be added" ,required=true )  @Valid @RequestBody History body);
