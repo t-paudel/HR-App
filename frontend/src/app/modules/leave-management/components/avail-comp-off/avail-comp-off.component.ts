@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AvailCompOff } from 'src/app/models/avail-comp-off';
-import { LeaveService } from 'src/app/service/leave.service';
+import { AvailCompOff } from '../../models/avail-comp-off';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LeaveService } from '../../services/leave.service';
 
 @Component({
   selector: 'app-avail-comp-off',
@@ -39,4 +39,5 @@ export class AvailCompOffComponent implements OnInit {
 
     this.leaveService.availCompOff(this.compOff).subscribe(()=>{});
   }
+
 }

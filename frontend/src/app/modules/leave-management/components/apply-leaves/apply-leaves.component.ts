@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ApplyLeave } from 'src/app/models/apply-leave';
-import { LeaveService } from 'src/app/service/leave.service';
+import { ApplyLeave } from '../../models/apply-leave';
+import { LeaveService } from '../../services/leave.service';
 
 @Component({
   selector: 'app-apply-leaves',
   templateUrl: './apply-leaves.component.html',
   styleUrls: ['./apply-leaves.component.css']
 })
-export class ApplyLeavesComponent implements OnInit {
+export class ApplyLeavesComponent implements OnInit 
+{
 
   leaveForm : FormGroup;
   applyLeave = new ApplyLeave();

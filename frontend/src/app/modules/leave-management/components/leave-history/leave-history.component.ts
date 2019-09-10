@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoryService } from 'src/app/service/history.service';
-import { LeaveHistory } from 'src/app/models/leave-history';
+import { LeaveHistory } from '../../models/leave-history';
+import { HistoryService } from '../../services/history.service';
 
 @Component({
   selector: 'app-leave-history',

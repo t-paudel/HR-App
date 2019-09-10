@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { UserLeaves } from '../models/user-leaves';
 import { ApplyLeave } from '../models/apply-leave';
 import { AvailCompOff } from '../models/avail-comp-off';
@@ -7,8 +7,8 @@ import { AvailCompOff } from '../models/avail-comp-off';
 @Injectable({
   providedIn: 'root'
 })
-export class LeaveService {
-
+export class LeaveService 
+{
   private headers = new HttpHeaders({'Content-Type'  : 'application/json'});
 
   constructor(private http:HttpClient) { }

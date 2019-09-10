@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { UserLeaves } from 'src/app/models/user-leaves';
-import { LeaveService } from 'src/app/service/leave.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserLeaves } from '../../models/user-leaves';
+import { LeaveService } from '../../services/leave.service';
 
 @Component({
   selector: 'app-add-leaves',
@@ -47,4 +47,5 @@ export class AddLeavesComponent implements OnInit {
       console.log('leave added');
     })
   }
+
 }

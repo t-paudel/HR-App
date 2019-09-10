@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { LeaveHistory } from '../models/leave-history';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HistoryService {
-
+export class HistoryService 
+{
   private headers = new HttpHeaders({'Content-Type':'application/json'});
 
   constructor(private http:HttpClient) { }
@@ -25,5 +25,4 @@ export class HistoryService {
   {
     return this.http.delete('/v2/leaveManagement/api/removeHistory/' + id, {headers:this.headers});
   }
-
 }
