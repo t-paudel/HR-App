@@ -10,7 +10,7 @@ import { LeaveService } from '../../services/leave.service';
 })
 export class ApplyLeavesComponent implements OnInit 
 {
-
+  
   leaveForm : FormGroup;
   applyLeave = new ApplyLeave();
   leaveType = ['Sick Leave', 'Casual Leave', 'Earned Leave', 'Comp-Off', 'Loss of Pay', 'Maternity Leave'];

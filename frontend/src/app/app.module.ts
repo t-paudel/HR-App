@@ -14,7 +14,8 @@ import { LeaveManagementModule } from './modules/leave-management/leave-manageme
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LeaveManagementModule
+    LeaveManagementModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
